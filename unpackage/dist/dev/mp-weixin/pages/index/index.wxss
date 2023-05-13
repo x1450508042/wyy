@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.top {
+  width: 750rpx;
+  height: 100rpx;
+}
+.top .inp {
+  margin: 9px auto;
+  padding-left: 20px;
+  width: 490rpx;
+  height: 70rpx;
+  border-radius: 20rpx;
+  background-color: #dedede;
+  color: #6d6d6d;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+.bannes {
+  width: 700rpx;
+  height: 150px;
+  margin: 0 auto;
+}
+.bannes .swiper-item {
+  width: 700rpx;
+  height: 150px;
+}
+.bannes .swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+.tjmusic {
+  width: 700rpx;
+  margin: 0 auto;
+}
+.tjmusic .tjTop {
+  font-size: 35rpx;
+  font-weight: 700;
+  margin: 20rpx 0;
+}
+.tjmusic .container {
+  height: 360rpx;
+  width: 100%;
+}
+.tjmusic .container swiper-item {
+  width: 36% !important;
+  padding-right: 10px !important;
+}
+.tjmusic .container .swiper {
+  height: 100%;
+}
+.tjmusic .container .swiper image {
+  width: 100%;
+  height: 250rpx;
+  border-radius: 9px;
+}
+.tjmusic .container .swiper .txt {
+  height: 42px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+

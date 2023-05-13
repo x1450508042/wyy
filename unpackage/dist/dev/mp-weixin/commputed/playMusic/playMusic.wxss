@@ -1,0 +1,44 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.footerM {
+  width: 750rpx;
+  box-shadow: -6px 6px 7px 5px;
+  background: #f7f7fa;
+  position: fixed;
+  bottom: 0;
+}
+.footerM .musicz {
+  width: 700rpx;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footerM .musicz .yicyc {
+  width: 450rpx;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.footerM .musicz image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.footerM .musicz text {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+}
+.footerM .musicz .fr {
+  float: right;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 25px;
+}
+

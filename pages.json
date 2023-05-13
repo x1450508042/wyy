@@ -1,0 +1,103 @@
+{
+	"pages": [
+		{
+		"path": "pages/index/index",
+		"style": {
+
+		}
+	}, {
+		"path": "pages/bk/index/index",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}    ,{
+            "path" : "pages/user/index/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/gz/index/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		    "path" : "pages/login/login",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "手机号登录",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+        
+        ,{
+            "path" : "pages/playmusic/playmusic",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "歌单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/musicLy/musicLy",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "音乐播放器",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	"tabBar": {
+		//选中的文字颜色
+		"selectedColor": "#d81e06",
+		//未选中的文字颜色
+		"color": "#a3a1a1",
+		"list": [{
+				"text": "发现",
+				"pagePath": "pages/index/index",
+				"iconPath": "static/icon/音乐.png",
+				"selectedIconPath": "static/icon/音乐 (1).png"
+
+			},
+			{
+				"text": "播客",
+				"pagePath": "pages/bk/index/index",
+				"iconPath": "static/icon/雷达 (1).png",
+				"selectedIconPath": "static/icon/雷达.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/user/index/index",
+				"iconPath": "static/icon/wa.png",
+				"selectedIconPath": "static/icon/w.png"
+			},
+			{
+				"text": "关注",
+				"pagePath": "pages/gz/index/index",
+				"iconPath": "static/icon/KHCFDC_关注.png",
+				"selectedIconPath": "static/icon/KHCFDC_关注 (1).png"
+			}
+		]
+	}
+}

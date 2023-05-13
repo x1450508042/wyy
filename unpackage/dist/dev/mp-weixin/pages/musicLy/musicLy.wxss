@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.bgcs {
+  width: 750rpx;
+  height: 94vh;
+  position: absolute;
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+}
+.LyTopMusic {
+  width: 750rpx;
+  height: 94vh;
+  position: relative;
+  z-index: 3;
+}
+.LyTopMusic .shangx {
+  height: 900rpx;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.LyTopMusic .textan {
+  height: 100rpx;
+}
+.LyTopMusic .textan view {
+  width: 200rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.LyTopMusic .wzz {
+  width: 700rpx;
+  height: 830rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+.LyTopMusic .wzz .act {
+  font-size: 30rpx;
+  color: #fff !important;
+}
+.LyTopMusic .wzz .txtsLRC {
+  display: block;
+  color: #c5c5c5;
+}
+.LyTopMusic .cz {
+  width: 150rpx;
+  height: 230rpx;
+  position: absolute;
+  left: 50%;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: all 1s;
+  z-index: 99;
+}
+.LyTopMusic .czActive {
+  width: 150rpx;
+  height: 230rpx;
+  position: absolute;
+  left: 50%;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+  transition: all 1s;
+  z-index: 99;
+}
+.LyTopMusic .imgcd {
+  position: relative;
+  top: 200rpx;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  width: 480rpx;
+  height: 480rpx;
+}
+.LyTopMusic .imgcd .imgcd001 {
+  width: 480rpx;
+  height: 480rpx;
+}
+.LyTopMusic .imgcd .imgcd002 {
+  position: absolute;
+  width: 300rpx;
+  height: 300rpx;
+  top: 19%;
+  left: 19%;
+  border-radius: 50%;
+  -webkit-animation: zqq 10s linear infinite;
+          animation: zqq 10s linear infinite;
+}
+.LyTopMusic .imgcd .imgcd002Play {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+.LyTopMusic .imgcd .imgcd002paused {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+@-webkit-keyframes zqq {
+0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+}
+100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+}
+}
+@keyframes zqq {
+0% {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+}
+100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+}
+}
+.footerMusic {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  z-index: 99;
+}
+.footerMusic text {
+  margin: 0 10px;
+  font-size: 30px;
+}
+.progress-box {
+  width: 600rpx;
+  height: 3px;
+  position: relative;
+  bottom: 80px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  z-index: 999;
+}
+.progress-box .y {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: -3px;
+}
+

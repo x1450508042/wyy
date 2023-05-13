@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.text {
+  padding: 10px;
+  border-bottom: 1px solid #bdbdbd;
+}
+button {
+  width: 600rpx;
+}
+
