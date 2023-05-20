@@ -55,10 +55,38 @@ const store = new Vuex.Store({
 		},
 		getSetduration(state,times){	//修改当前歌曲时长
 			state.setduration=times
+		},
+		SETPLAYLIST02(state,data){
+			state.playList=[...state.playList,data]
+			state.playIndex=state.playList.length-1
 		}
 	},
 	actions: {
 		//相当于异步的操作,不能直接改变state的值，只能通过触发mutations的方法才能改变
+		setPlayList02({commit},data){
+			let playList={}
+			const ar = data.artists.map(item=>{
+				return {
+					name:item.name,
+					id:item.id,
+					img:item.img1v1Url
+				}
+			})
+			playList={ //播放列表
+				al: {
+					id: data.album.id,
+					name: data.album.name,
+					pic: data.album.pic,
+					picUrl: data.album.artist.img1v1Url,
+				},
+				name:data.name,
+				id: data.id,
+				ar: ar,
+				duration:data.duration
+
+			}
+			commit('SETPLAYLIST02',playList)
+		}
 	},
 	getters:{
 		getBackgroundImageUrl: state => state.playList[state.playIndex].al.picUrl

@@ -20,7 +20,7 @@
 				</view>
 			</view>
 			<!-- v-show="LYSHOW" -->
-			<scroll-view scroll-y="true" class="wzz" ref="musiclys">
+			<scroll-view scroll-y="true" class="wzz" ref="musiclys" :scroll-top="localScrollTop">
 				<view  @click="showLY" v-show="LYISHOW" >
 					<text v-for="(item,index) in lyric" :key="index" class="txtsLRC" :class="{act:setduration*1000>=item.time && setduration*1000< item.pre}">
 						{{item.lrc}}
@@ -60,7 +60,7 @@
 				lyc: {},
 				LYISHOW: false,
 				iMGISHOW: true,
-				scrollTop:250
+				localScrollTop:0,
 			}
 		},
 		methods: {
@@ -216,7 +216,8 @@
 						  //   scrollTop: txt.offsetTop-250,
 						  //   duration: 300
 						  // })
-						this.$refs.musiclys.scrollTop=txt.offsetTop-200
+						  this.localScrollTop=txt.offsetTop-200
+				
 	
 					}
 				}
@@ -317,6 +318,7 @@
 			.txtsLRC {
 				display: block;
 				color: #c5c5c5;
+				margin: 20rpx 0;
 			}
 		}
 

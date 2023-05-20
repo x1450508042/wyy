@@ -1,33 +1,21 @@
 <template>
-	<view v-if="musicList.code==200">
-		<image class="qwebgc" :src="musicList.playlist.coverImgUrl" ></image>
-		<view class="bgc">
-			<view class="musicTop">
-				<view class="musicTop_T">
-					<image style="float: left;" :src="musicList.playlist.coverImgUrl " ></image>
-					<view class="r">
-						<view style="font-size: 15px; color: #fff;" >{{musicList.playlist.name}}</view>
-						<view style="color: #fff;" >{{musicList.playlist.creator.nickname}}</view>
-						<view >
-							<uni-tag :text="item+'>'" style="background: transparent; border: 1px solid #fff; margin-right: 5px;" v-for="item in musicList.playlist.tags"></uni-tag>
-						</view>
-					</view>
-				</view>
-			</view>
+	<view>
+		<view class="top">
+			<input type="text" class="inp" v-model="text" @input="dianj" >
 		</view>
-		<view class="buttonbgc" v-if="musicList.code==200">
+		<view class="buttonbgc">
 			<view class="musicTop">
 				<view class="listTop">
 					<text class="bof"></text>
 					<text style="margin: 0 5px; font-size: 30rpx; font-weight: 700;">播放全部</text>
-					<text>({{musicList.playlist.trackCount || ''}})</text>
+					<!-- <text>({{musicList.playlist.trackCount || ''}})</text> -->
 				</view>
-				<view class="music" v-for="(item,index) in musicList.playlist.tracks" :key="index" @click="plays(item)">
+				<view class="music" v-for="(item,index) in musicList" :key="index" @click="plays(item)">
 					<text class="index">{{index+1}}</text>
 					<view class="musicname">
-						<text class="name01">{{item.al.name}}</text>
+						<text class="name01">{{item.album.name}}</text>
 						<view class="yss">
-							<text class="name02" v-for="(n,index) in item.ar" :key="n.id">{{n.name}}{{item.ar.length-1==index?'':'/'}}</text>
+							<text class="name02" v-for="(n,index) in item.artists" :key="n.id">{{n.name}}{{item.artists.length-1==index?'':'/'}}</text>
 						</view>
 					</view>
 				</view>
@@ -38,15 +26,10 @@
 </template>
 
 <script>
-	import {mapState} from "vuex"
+	import {mapState} from 'vuex'
 	export default {
-		data() {
-			return {
-				musicList:{}
-			}
-		},
 		async onLoad(options) {
-			if(options.id ==undefined){
+			if(options.inp ==undefined){
 				await uni.switchTab({
 					url:"/pages/index/index"
 				})
@@ -56,25 +39,52 @@
 					mask:true
 				})
 				let res =await this.$wyy({
-					url:`/playlist/detail?id=${options.id}`
+					url:`/search?keywords=${options.inp}`
 				})
 				
 				if(res.data.code ==200){
 					uni.hideLoading();
 					this.$nextTick(()=>{
-						this.musicList=res.data
+						this.musicList=res.data.result.songs
 					})
 				}
 			}
 		},
-		methods: {
-				
-			plays(item){
-
-				this.$store.commit('setPlayList',item)
+		data() {
+			return {
+				text:'',
+				musicList:[],
+				timer:null
 			}
 		},
-			
+		methods: {
+			 dianj(){
+			if(this.timer){
+				clearTimeout(this.timer)
+			}
+			this.timer=setTimeout(async()=>{
+				uni.showLoading({
+					title:"加载中",
+					mask:true
+				})
+				let res =await this.$wyy({
+					url:`/search?keywords=${this.text}`
+				})
+				
+				if(res.data.code ==200){
+					uni.hideLoading();
+					this.$nextTick(()=>{
+						this.musicList=res.data.result.songs
+					})
+				}
+				this.timer=null
+			},500)
+				
+			},
+			plays(item){
+				this.$store.dispatch('setPlayList02',item)
+			}
+		},
 		computed:{
 			...mapState(['playList','playIndex','Audio','cnnuni','isPlay'])
 		},
@@ -108,41 +118,23 @@
 </script>
 
 <style lang="scss">
-	.qwebgc{
+	.top {
 		width: 750rpx;
-		height: 300px;
-		filter: blur(15px);
-		position: absolute;
-	}
-	.bgc{
-		height: 300px;
+		height: 100rpx;
 
-		.musicTop{
-			width: 700rpx;
-			height: 200rpx;
-			margin: 0 auto;
-			padding-top: 20px;
-			.musicTop_T{
-				image{
-					width: 200rpx;
-					height: 200rpx;
-					border-radius: 10px;
-					margin-right: 15px;
-				}
-				.r{
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					view{
-						position: relative;
-						z-index: 99;
-						margin-bottom: 5px;
-					}
-				}
-			}
+		.inp {
+			// line-height: 100rpx;
+			margin: 9px auto;
+			padding-left: 20px;
+			width: 490rpx;
+			height: 70rpx;
+			border-radius: 20rpx;
+			background-color: #dedede;
+			color: #6d6d6d;
+			font-size: 30rpx;
+			font-weight: 500;
 		}
 	}
-	
 	.buttonbgc{
 		position: relative;
 		top: -10px;
@@ -189,7 +181,7 @@
 							text-overflow: ellipsis;
 						}
 					}
-
+	
 				}
 			}
 			.bof{

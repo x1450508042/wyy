@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="top">
-			<input type="text" class="inp">
+			<input type="text" class="inp" v-model="text" @confirm="dianj" >
 		</view>
 		<swiper class="bannes" circular :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 			<swiper-item v-for="(item,index) in banners" :key="index">
@@ -31,12 +31,14 @@
 </template>
 
 <script>
+	import {fd} from "../../util/jb.js"
 	export default {
 		data() {
 			return {
 				text: "",
 				banners: [],
-				playList:[]
+				playList:[],
+				timer:null
 			}
 		},
 		onLoad() {
@@ -65,7 +67,19 @@
 				uni.navigateTo({
 					url:"/pages/playmusic/playmusic?id="+id
 				})
+			},
+			dianj(){
+			if(this.timer){
+				clearTimeout(this.timer)
 			}
+			this.timer=setTimeout(()=>{
+				uni.navigateTo({
+					url:'/pages/search/search?inp='+this.text
+				})
+				this.timer=null
+			},500)
+				
+			},
 		}
 	}
 </script>
